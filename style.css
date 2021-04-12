@@ -13,6 +13,14 @@ body {
     color: rgb(23, 32, 44);
   }
  
+  n{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: #43729b;
+    color: rgb(23, 32, 44);
+  }
   
   h1, h2, h3,h4 {
     margin: 2% 0;
