@@ -1,4 +1,138 @@
-* {
-    box-sizing: border-box;
-    border: 1px solid red;
-}
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: #43729b;
+    color: rgb(23, 32, 44);
+  }
+ 
+  
+  h1, h2, h3,h4 {
+    margin: 2% 0;
+    font-size: 250%;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+  }
+  
+  nav a {
+    color: #b9C6ae;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: #fff;
+  }
+  
+  main {
+    display: flex;
+    flex: 1 1 0;
+    max-width: 1200px;
+    margin: 2% auto;
+  }
+  
+  section {
+    flex: 1 1 0;
+    padding-right: 5%;
+  }
+  
+  article {
+    border-bottom: 1px solid #d8a47f;
+  }
+  
+  article p {
+    margin: 2% 0;
+    font-size: 110%;
+  }
+  
+  article ul {
+    margin-left: 5%;
+    font-size: 110%;
+    list-style: circle;
+  }
+  
+  aside {
+    width: 25%;
+  }
+  
+  aside h2 {
+    font-size: 150%;
+  }
+  
+  input, button {
+    width: 100%;
+    margin: 2% 0;
+    padding: 1%;
+  }
+  
+  footer {
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    background-color: #416f99;
+    color: rgb(37, 11, 11);
+  }
+  
+  /* TODO: Add styles to display and hide the resource links */
+  
+  @media screen and (max-width: 768px) {
+    header, main {
+      flex-direction: row;
+    }
+  
+    section {
+      padding-right: 0;
+    }
+  
+    aside {
+      width: 100%;
+      text-align: center;
+    }
+  
+    link:hover {
+      display: inline;
+      background-color: #772014;
+      color: rgb(43, 18, 18);
+    }
+    
+    /* The user is actively pressing down on the element */
+    link:active {
+      font-size: 180%;
+      box-shadow: 0 0 25px rgb(126, 133, 173) inset;
+    }
+    
+    /* The element is currently in focus, either by tabbing to or clicking on it */
+    link:focus {
+      outline: none;
+      border-color: #6cb9a2;
+    }
+    
+  
+    
+  
+    #items{
+      width: 20px;
+      height: 20px;
+    }
+  
+  
+  .info{
+    display: none;
+  }
+    #items:hover .info {
+     display: block;  
+   }
+    }
+  
+  
