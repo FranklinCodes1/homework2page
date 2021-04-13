@@ -1,8 +1,5 @@
-*
-
-
-
 body {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -27,6 +24,8 @@ body {
   }
 
   .header {
+    display: flex;
+    flex-wrap: wrap;
     text-align: left;
 
   }
@@ -65,30 +64,7 @@ body {
   }
 
   
-  article p {
-    margin: 2% 0;
-    font-size: 110%;
-  }
-  
-  article ul {
-    margin-left: 5%;
-    font-size: 110%;
-    list-style: circle;
-  }
-  
-  aside {
-    width: 25%;
-  }
-  
-  aside h2 {
-    font-size: 150%;
-  }
-  
-  input, button {
-    width: 100%;
-    margin: 2% 0;
-    padding: 1%;
-  }
+
   
   footer {
     display: flex;
@@ -102,9 +78,7 @@ body {
   .flex-grid {
      display: flex;
    }
-   .header {
-     flex: 1;
-   }
+   
    
 
   .header lorem{ color: red;
