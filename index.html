@@ -5,79 +5,185 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>HOMEWORK1</title>
+    <title>HOMEWORK222</title>
 </head>  
 
 <body>
     <div class="header">   
-        <h1>Hori<span class="seo">seo</span>n</h1>
+        <h1>Kevin Franklin</h1>
         <div>
-            <nav>
-                <li>
-                    <a href="#search-engine-optimization">Search Engine Optimization</a>
-                </li>
-                <li>
-                    <a href="#online-reputation-management">Online Reputation Management</a>
-                </li>
-                <li>
-                    <a href="#social-media-marketing">Social Media Marketing</a>
-                </li>
-            </nav>
+          <nav>
+             <a href="#about-me">About Me</a>
+             <a href="#work">Work</a>
+             <a href="#contact-me">Contact Me</a>
+             <a href="#resume">Resume</a>
+             </nav>
+          
         </div>
     </div>
-    <div class="hero"></div>
+    <div class="hero">
+        <canvas id="canvas" width="200" height="200"
+        style="background-color:none">
+        </canvas>
+        
+        <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        setInterval(drawClock, 5);
+        
+        function drawClock() {
+          drawFace(ctx, radius);
+          drawNumbers(ctx, radius);
+          drawTime(ctx, radius);
+        }
+        
+        function drawFace(ctx, radius) {
+          var grad;
+          ctx.beginPath();
+          ctx.arc(0, 0, radius, 0, 2*Math.PI);
+          ctx.fillStyle = 'purple';
+          ctx.fill();
+          grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+          grad.addColorStop(0, '#333');
+          grad.addColorStop(0.5, 'blue');
+          grad.addColorStop(1, '#333');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = radius*0.1;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+          ctx.fillStyle = '#333';
+          ctx.fill();
+        }
+        
+        function drawNumbers(ctx, radius) {
+          var ang;
+          var num;
+          ctx.font = radius*0.15 + "px arial";
+          ctx.textBaseline="middle";
+          ctx.textAlign="center";
+          for(num = 1; num < 13; num++){
+            ang = num * Math.PI / 6;
+            ctx.rotate(ang);
+            ctx.translate(0, -radius*0.85);
+            ctx.rotate(-ang);
+            ctx.fillText(num.toString(), 0, 0);
+            ctx.rotate(ang);
+            ctx.translate(0, radius*0.85);
+            ctx.rotate(-ang);
+          }
+        }
+        
+        function drawTime(ctx, radius){
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //hour
+            hour=hour%12;
+            hour=(hour*Math.PI/6)+
+            (minute*Math.PI/(6*60))+
+            (second*Math.PI/(360*60));
+            drawHand(ctx, hour, radius*0.5, radius*0.07);
+            //minute
+            minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+            drawHand(ctx, minute, radius*0.8, radius*0.07);
+            // second
+            second=(second*Math.PI/30);
+            drawHand(ctx, second, radius*0.9, radius*0.02);
+        }
+        
+        function drawHand(ctx, pos, length, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.moveTo(0,0);
+            ctx.rotate(pos);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+        </script>
+        
+
+
+
+
+
+    </div>
+
+
+    
     <div class="content">
-        <article id="search-engine-optimization" class="search-engine-optimization"> 
-            <img src="./assets/images/search-engine-optimization.jpg" alt="search-engine-optimization" class="float-left" />
-            <h2>Search Engine Optimization</h2>
+        <article id="about-me" class="search-engine-optimization"> 
+            <img src="./assets/images/pexels-luis-gomes-546819.jpg" alt="laptop" class="float-left" />
+            <h2>About Me</h2>
             <p>
-                The dominance of mobile internet use means that users are searching for the right business as they travel, shop, or sit on their couch at home. Search Engine Optimization (SEO) allows you to increase your visibility and find the right customers for your business.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nemo doloremque, necessitatibus voluptate soluta tenetur quaerat veniam nesciunt, facilis eaque, ipsum ullam. Illum, expedita enim ut provident asperiores quod incidunt?
             </p>
         </article>
-        <article id="online-reputation-management" class="online-reputation-management">
-            <img src="./assets/images/online-reputation-management.jpg" alt="online-reputation-management" class="float-right" />
-            <h3>Online Reputation Management</h3>
+        <article id="work" class="online-reputation-management">
+            <img src="./assets/images/pexels-fauxels-3183183.jpg" alt="online-reputation-management" class="float-left" />
+            <h3>Work</h3>
             <p>
-                The web is full of opinions, and some of these can be negative. Social media allows anyone with an internet connection to say whatever they want about your business. Online Reputation Management gives you the control over what potential customers see when they search for your business.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis nulla nemo obcaecati qui, aut sunt eligendi cum labore doloribus, nihil cupiditate expedita dolor ipsam voluptates hic odio explicabo et!
             </p>
         </article>
-        <article id="social-media-marketing" class="social-media-marketing">
-            <img src="./assets/images/social-media-marketing.jpg"  alt="social-media-marketing" class="float-left" />
-            <h4>Social Media Marketing</h4>
+        <article id="contact-me" class="social-media-marketing">
+            <img src="./assets/images/twitter-facebook-together-exchange-of-information-147413.jpg"  alt="social-media-marketing" class="float-left" />
+            <h4>Contact Me</h4>
             <p>
-                Social media continues to have a sizable influence on buying habits. Social media marketing helps you determine which platforms are suited to your brand, using analytics to find the right markets and increase your lead generation.
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit at doloribus iusto consequatur corporis libero dolores fugiat. Veritatis, voluptatibus vel! Repellendus nostrum architecto eveniet culpa animi doloribus enim vel atque?
+            </p>
+        </article>
+        <article id="resume" class="social-media-marketing">
+            <img src="./assets/images/pexels-photo-5668765.webp"  alt="social-media-marketing" class="float-left" />
+            <h4>Resume</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, beatae. Nisi exercitationem unde recusandae assumenda nobis culpa odit, sit tempora. Expedita laboriosam rerum eveniet officiis laudantium culpa maiores accusantium sunt.
             </p>
         </article>
     </div>
     <div class="benefits">
-        <div class="benefit-lead">
-            <h5>Lead Generation</h5>
-            <img src="./assets/images/lead-generation.png" alt="lead-generation" />
+        <div>  <section class="clock">
+            <header>CLOCK</header>
             <p>
-                Inbound strategies for lead generation require less work for your business, bringing customers directly to your website.
+                <a href="https://www.w3schools.com">
+                <img alt="clock" src="./assets/images/clockclock.jpg" >
+                </a>
             </p>
-        </div>
-        <div class="benefit-brand">
-            <h6>Brand Awareness</h6>
-            <img src="./assets/images/brand-awareness.png" alt="brand-awareness" />
-            <p>
-                Users find your business through paid and organic searches, increasing the search ranking and visibility for your business.
-            </p>
-        </div>
-        <div class="benefit-cost">
-            <h7>Cost Management</h7>
-            <img src="./assets/images/cost-management.png" alt="cost-management" />
-            <p>
-                As the search ranking for your business increases, your advertising costs decrease, and you no longer need to advertise your page.
-            </p>
-        </div>
+           
+            
+          </section>
+          <section class="card">
+            <header>Tablet</header>
+            <img src="./assets/images/webdesign.webp" alt="webdesign">
+            
+              </section></div>  
+          
+            
+          <section class="card">
+            <header>Stock Ticker</header>
+            <img src="./assets/images/ticker.webp" alt="stocks">
+         
+          </section>
+          
     </div>
-    <div class="footer">
-        <h2>Made with ❤️️ by Horiseon</h2>
+    
+    <footer>
+        <div class="footer">
+        <h2>Made with ❤️️ by Kevin</h2>
         <p>
-            &copy; 2019 Horiseon Social Solution Services, Inc.
+            &copy; 2021 
         </p>
     </div>
+    </footer>
+
+
+    
 </body>
 
 </html>
